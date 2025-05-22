@@ -5,6 +5,7 @@ app_description = "Shimnit HRMS"
 app_email = "info@midocean.tech"
 app_license = "mit"
 
+fixtures = [{"dt": "Property Setter", "filters": {"module": 'Shimnit HRMS'}}]
 # Apps
 # ------------------
 
@@ -137,13 +138,11 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Salary Slip": {
+		"validate": "shimnit_hrms.shimnit_hrms.customizations.salary_slip.salary_slip.validate"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
