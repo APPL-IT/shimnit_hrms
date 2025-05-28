@@ -5,7 +5,14 @@ app_description = "Shimnit HRMS"
 app_email = "info@midocean.tech"
 app_license = "mit"
 
-fixtures = [{"dt": "Property Setter", "filters": {"module": 'Shimnit HRMS'}}]
+fixtures = [
+				{
+                    "dt": "Property Setter", "filters": {"module": 'Shimnit HRMS'}
+				},
+                {
+                    "dt": "Print Format", "filters": {"module": 'Shimnit HRMS'}
+				}
+			]
 # Apps
 # ------------------
 
