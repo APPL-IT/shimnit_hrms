@@ -2,8 +2,10 @@ import frappe
 from datetime import datetime
 
 def validate(doc, method):
-
-    date_obj = datetime.strptime(doc.end_date, "%Y-%m-%d")
+    if type(doc.end_date) == str:
+        date_obj = datetime.strptime(doc.end_date, "%Y-%m-%d")
+    else:
+        date_obj = doc.end_date
     doc.custom_month = date_obj.strftime("%B")
     salary_structure_doc = frappe.get_doc("Salary Structure", doc.salary_structure)
     hidden_earning_comps = []
