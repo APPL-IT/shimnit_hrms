@@ -148,6 +148,9 @@ fixtures = [
 doc_events = {
 	"Salary Slip": {
 		"validate": "shimnit_hrms.shimnit_hrms.customizations.salary_slip.salary_slip.validate"
+	},
+    "Employee Checkin": {
+		"validate": "shimnit_hrms.shimnit_hrms.customizations.employee_checkin.employee_checkin.validate"
 	}
 }
 
