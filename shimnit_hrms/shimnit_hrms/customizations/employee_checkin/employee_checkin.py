@@ -1,7 +1,11 @@
 import frappe
 
 def validate(doc, method):
-    punch_date = doc.time.split(" ")[0]
+    if type(doc.time) == str:
+        punch_date = doc.time.split(" ")[0]
+    else:
+        date_str = doc.time.strftime("%Y-%m-%d %H:%M:%S")
+        punch_date = date_str.split(" ")[0]
     strt_date = punch_date + " 00:00:01"
     end_date = punch_date + " 23:59:59"
     
