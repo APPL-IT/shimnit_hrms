@@ -23,13 +23,13 @@ def validate(doc, method):
         if i.salary_component in hidden_earning_comps:
             earning_rows_to_remove.append(i)
 
-    for row in earning_rows_to_remove:
-        doc.earnings.remove(row)
+    # for row in earning_rows_to_remove:
+    #     doc.earnings.remove(row)
 
-    deduction_rows_to_remove = []
-    for j in doc.deductions:
-        if j.salary_component in hidden_deduction_comps:
-            deduction_rows_to_remove.append(j)
+    # deduction_rows_to_remove = []
+    # for j in doc.deductions:
+    #     if j.salary_component in hidden_deduction_comps:
+    #         deduction_rows_to_remove.append(j)
     
-    for row1 in deduction_rows_to_remove:
-        doc.deductions.remove(row1)
+    # for row1 in deduction_rows_to_remove:
+    #     doc.deductions.remove(row1)
