@@ -150,6 +150,9 @@ doc_events = {
 	},
     "Employee Checkin": {
 		"validate": "shimnit_hrms.shimnit_hrms.customizations.employee_checkin.employee_checkin.validate"
+	},
+    "Journal Entry": {
+		"validate": "shimnit_hrms.shimnit_hrms.customizations.journal_entry.journal_entry.validate"
 	}
 }
 
