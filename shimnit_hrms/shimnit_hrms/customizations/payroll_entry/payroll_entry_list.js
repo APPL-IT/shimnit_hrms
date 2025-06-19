@@ -50,7 +50,7 @@ function create_bulk_payroll_entry(){
             freeze: true,
             freeze_message: __("Creating Payroll Entries ..."),
             callback: function(r) {
-                frappe.msgprint("Payroll Entry Created Successfully !")
+                frappe.msgprint("Payroll Entry Created Successfully for "+ r.message+" Employees !")
                 }
             });
             d.hide();
