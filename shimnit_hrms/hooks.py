@@ -140,6 +140,9 @@ doctype_list_js = {"Payroll Entry" : "shimnit_hrms/customizations/payroll_entry/
 # override_doctype_class = {
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
+override_doctype_class = {
+    "Payroll Entry":"shimnit_hrms.shimnit_hrms.customizations.payroll_entry.payroll_entry.CustomPayrollEntry"
+}
 
 # Document Events
 # ---------------
