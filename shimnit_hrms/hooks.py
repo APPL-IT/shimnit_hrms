@@ -50,8 +50,7 @@ fixtures = [
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 # include js in doctype views
-doctype_js = {"Salary Slip" : "shimnit_hrms/customizations/salary_slip/salary_slip.js",
-    		 "Payment Reconciliation":"shimnit_hrms/custom_script/payment_reconciliation/payment_reconciliation.js"
+doctype_js = {"Salary Slip" : "shimnit_hrms/customizations/salary_slip/salary_slip.js"
     }
 doctype_list_js = {"Payroll Entry" : "shimnit_hrms/customizations/payroll_entry/payroll_entry_list.js"}
 

@@ -3,11 +3,9 @@ from frappe import _
 from frappe.custom.doctype.custom_field.custom_field import create_custom_field
 from frappe.custom.doctype.property_setter.property_setter import make_property_setter
 from frappe.utils.fixtures import sync_fixtures
-from .payment_reconciliation import *
 
 @frappe.whitelist()
 def custom_field():
-    payment_reconciliation_custom_fields()
     delete_custom_fields_list()
 
 def delete_custom_fields_list():
