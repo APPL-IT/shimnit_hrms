@@ -1,22 +1,22 @@
 frappe.ui.form.on('Salary Slip', {
     refresh(frm) {
-        // Hide earnings rows with custom_hide_from_salary_slip == 1
-        frm.fields_dict['earnings'].grid.wrapper.find('.grid-row').each(function (i, row_el) {
-            const row_data = frm.doc.earnings[i]; // use i directly
-            if (row_data && row_data.custom_hide_from_salary_slip == 1) {
-                $(row_el).hide();
+        // Hide earnings rows
+        frm.fields_dict['earnings'].grid.grid_rows.forEach(function (grid_row) {
+            const row_data = grid_row.doc;
+            if (row_data.custom_hide_from_salary_slip == 1) {
+                grid_row.wrapper.hide();
             } else {
-                $(row_el).show();  // ensure rows not matching are visible
+                grid_row.wrapper.show();
             }
         });
 
-        // Hide deductions rows with custom_hide_from_salary_slip == 1
-        frm.fields_dict['deductions'].grid.wrapper.find('.grid-row').each(function (i, row_el) {
-            const row_data = frm.doc.deductions[i]; // use deductions here
-            if (row_data && row_data.custom_hide_from_salary_slip == 1) {
-                $(row_el).hide();
+        // Hide deductions rows
+        frm.fields_dict['deductions'].grid.grid_rows.forEach(function (grid_row) {
+            const row_data = grid_row.doc;
+            if (row_data.custom_hide_from_salary_slip == 1) {
+                grid_row.wrapper.hide();
             } else {
-                $(row_el).show();
+                grid_row.wrapper.show();
             }
         });
     }
