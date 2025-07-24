@@ -5,6 +5,24 @@ from hrms.payroll.doctype.payroll_entry.payroll_entry import PayrollEntry
 from erpnext.accounts.doctype.accounting_dimension.accounting_dimension import (
 	get_accounting_dimensions,
 )
+import json
+
+from frappe.utils import (
+	DATE_FORMAT,
+	add_days,
+	add_to_date,
+	cint,
+	comma_and,
+	date_diff,
+	flt,
+	get_link_to_form,
+	getdate,
+)
+from datetime import timedelta
+
+from hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import if_lending_app_installed
+from hrms.payroll.doctype.salary_withholding.salary_withholding import link_bank_entry_in_salary_withholdings
+
 
 class CustomPayrollEntry(PayrollEntry):
 	def make_accrual_jv_entry(self, submitted_salary_slips):
@@ -71,7 +89,7 @@ class CustomPayrollEntry(PayrollEntry):
 				employee_wise_accounting_enabled,
 			)
 
-			self.make_journal_entry(
+			self.custom_make_journal_entry(
 				accounts,
 				currencies,
 				self.payroll_payable_account,
@@ -84,7 +102,7 @@ class CustomPayrollEntry(PayrollEntry):
 			)
             
 	
-	def make_journal_entry(
+	def custom_make_journal_entry(
 		self,
 		accounts,
 		currencies,
@@ -128,6 +146,18 @@ class CustomPayrollEntry(PayrollEntry):
 			raise
 
 		return journal_entry
+	
+	def get_payroll_dates_for_employee(self, employee_details: dict) -> tuple[str, str]:
+		start_date = self.start_date - timedelta(days=6)
+		if employee_details.date_of_joining > getdate(self.start_date):
+			start_date = employee_details.date_of_joining
+
+		end_date = self.end_date - timedelta(days=6)
+		if employee_details.relieving_date and employee_details.relieving_date < getdate(self.end_date):
+			end_date = employee_details.relieving_date
+
+		return start_date, end_date
+ 
 
 
 @frappe.whitelist()
