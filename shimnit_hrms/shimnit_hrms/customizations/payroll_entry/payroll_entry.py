@@ -148,11 +148,11 @@ class CustomPayrollEntry(PayrollEntry):
 		return journal_entry
 	
 	def get_payroll_dates_for_employee(self, employee_details: dict) -> tuple[str, str]:
-		start_date = self.start_date - timedelta(days=6)
+		start_date = self.start_date 
 		if employee_details.date_of_joining > getdate(self.start_date):
 			start_date = employee_details.date_of_joining
 
-		end_date = self.end_date - timedelta(days=6)
+		end_date = self.end_date 
 		if employee_details.relieving_date and employee_details.relieving_date < getdate(self.end_date):
 			end_date = employee_details.relieving_date
 
