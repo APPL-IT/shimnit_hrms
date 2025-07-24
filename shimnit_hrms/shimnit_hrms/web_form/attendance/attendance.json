@@ -22,7 +22,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2025-07-24 15:07:16.789105",
+ "modified": "2025-07-24 17:08:24.045014",
  "modified_by": "Administrator",
  "module": "Shimnit HRMS",
  "name": "attendance",
@@ -87,7 +87,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 1,
-   "read_only_depends_on": "eval:doc.attendance;",
+   "read_only_depends_on": "",
    "reqd": 1,
    "show_in_filter": 0
   },
