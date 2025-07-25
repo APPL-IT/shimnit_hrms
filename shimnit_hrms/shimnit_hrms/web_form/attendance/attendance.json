@@ -22,7 +22,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2025-06-18 10:53:55.236526",
+ "modified": "2025-07-24 17:08:24.045014",
  "modified_by": "Administrator",
  "module": "Shimnit HRMS",
  "name": "attendance",
@@ -31,7 +31,7 @@
  "published": 1,
  "route": "attendance",
  "show_attachments": 0,
- "show_list": 0,
+ "show_list": 1,
  "show_sidebar": 0,
  "title": "Attendance",
  "web_form_fields": [
@@ -86,8 +86,8 @@
    "max_length": 0,
    "max_value": 0,
    "precision": "",
-   "read_only": 0,
-   "read_only_depends_on": "eval:doc.attendance;",
+   "read_only": 1,
+   "read_only_depends_on": "",
    "reqd": 1,
    "show_in_filter": 0
   },
@@ -100,8 +100,8 @@
    "max_length": 0,
    "max_value": 0,
    "precision": "",
-   "read_only": 0,
-   "reqd": 0,
+   "read_only": 1,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -113,8 +113,8 @@
    "max_length": 0,
    "max_value": 0,
    "precision": "",
-   "read_only": 0,
-   "reqd": 0,
+   "read_only": 1,
+   "reqd": 1,
    "show_in_filter": 0
   }
  ]

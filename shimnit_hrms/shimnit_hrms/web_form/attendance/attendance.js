@@ -19,6 +19,19 @@ frappe.ready(function() {
         } else {
             frappe.msgprint("Geolocation is not supported by your browser.");
         }
+
+        // for server date and time
+        frappe.call({
+            method: "shimnit_hrms.api.utils.custom_get_server_datetime",
+            callback: function(response) {
+                if (response.message){
+                        frappe.web_form.set_value('time', (response.message));
+
+                }else{
+
+                }
+            }
+        });
     }, 500);
 	
     $(document).on('change', '[data-fieldname = "employee"]', function (event) {
@@ -44,4 +57,9 @@ frappe.ready(function() {
             });
             
         });
-})
+});
+function formatDateTime(serverDatetime) {
+    const dateOnly = serverDatetime.split(" ")[0]; // "2025-07-24"
+    const [year, month, day] = dateOnly.split("-");
+    return `${day}-${month}-${year}`;
+}

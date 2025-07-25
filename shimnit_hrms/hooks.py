@@ -50,7 +50,8 @@ fixtures = [
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 # include js in doctype views
-doctype_js = {"Salary Slip" : "shimnit_hrms/customizations/salary_slip/salary_slip.js"}
+doctype_js = {"Salary Slip" : "shimnit_hrms/customizations/salary_slip/salary_slip.js"
+    }
 doctype_list_js = {"Payroll Entry" : "shimnit_hrms/customizations/payroll_entry/payroll_entry_list.js"}
 
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -92,6 +93,10 @@ doctype_list_js = {"Payroll Entry" : "shimnit_hrms/customizations/payroll_entry/
 
 # before_install = "shimnit_hrms.install.before_install"
 # after_install = "shimnit_hrms.install.after_install"
+
+after_install = ["shimnit_hrms.custom_fields.custom_fields.custom_field"]
+
+after_migrate = ["shimnit_hrms.custom_fields.custom_fields.custom_field"]
 
 # Uninstallation
 # ------------
